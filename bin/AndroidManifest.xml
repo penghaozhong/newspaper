@@ -1,0 +1,52 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kids21.app.newspaper"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="15" />
+    <permission android:name="android.permission.BAIDU_LOCATION_SERVICE" >
+    </permission>
+
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_LOGS" >
+    </uses-permission>
+
+    <application android:name="com.kids21.app.newpaper.AppContext" android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher"
+        >
+        <activity
+            android:name="com.kids21.app.newpaper.ui.start"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            
+        </activity>
+	 <activity   android:name="com.kids21.app.newpaper.ui.SignActivity" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" />
+     <activity   android:name="com.kids21.app.newpaper.ui.NearByActivity" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" />
+     <activity   android:name="com.kids21.app.newpaper.ui.UserActivity" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" />
+     <activity   android:name="com.kids21.app.newpaper.ui.TestRolateAnimActivity" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" />
+ 
+    </application>
+
+</manifest>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="text_black">#000000</color><!--黑色 --> 
+    <color name="text_white">#ffffffff</color>
+    <color name="text_dark">#ff333333</color>
+    <color name="text_dkgray">#ff666666</color>
+    <color name="text_gray">#ffaaaaaa</color>
+    <color name="text_red">#ffea2c2c</color>
+    <color name="text_dkgreen">#ff4a7c0a</color>
+    <color name="text_ltgray">#ff738695</color>
+    <color name="text_gold">#ff946944</color>
+    <color name="text_ltgray_d">#cc738695</color>
+    <color name="text_white_d">#ccffffff</color>
+    <color name="link_common">#ff5caa1d</color>
+    <color name="link_placename">#ff89a81c</color>
+    <color name="shadow_green">#cc388c0d</color>
+    <color name="shadow_white">#ffffffff</color>
+    <color name="shadow_red">#ccd51b1c</color>
+    <color name="shadow_black">#e6202325</color>
+    <color name="item_sep">#ffeeeeee</color>
+    <color name="window_bg">#fff0f3f6</color>
+    <color name="window_bg_alpha">#cc000000</color>
+</resources>

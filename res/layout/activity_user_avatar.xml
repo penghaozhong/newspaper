@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:icity="http://schemas.android.com/apk/res/cn.chengdu.in.android"
+    android:id="@id/main"
+    android:layout_width="300.0dip"
+    android:layout_height="wrap_content"
+    android:background="@drawable/acc_bg_signin"
+    android:orientation="vertical"
+    android:padding="0.0dip" >
+
+    <TextView
+        android:id="@id/dialog_title"
+        style="@style/dialog_title_text"
+        android:layout_width="fill_parent"
+        android:layout_height="40.0dip"
+        android:background="@null"
+        android:gravity="center"
+        android:text="@string/user_avatar_title" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10.0dip"
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginRight="20.0dip"
+        android:layout_marginTop="10.0dip"
+        android:orientation="vertical"
+        android:padding="0.0dip" >
+
+        <TextView
+                style="@style/common_input_t"
+            android:id="@+id/textView_avatar_take"
+            android:textColor="@color/text_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_avatar_take" />
+        
+        
+    </LinearLayout>
+    <View
+        android:layout_marginLeft="10dip"
+        android:layout_width="280.0dip"
+        android:layout_height="1.0px"
+        android:background="@color/text_black" />
+ <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10.0dip"
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginRight="20.0dip"
+        android:layout_marginTop="10.0dip"
+        android:orientation="vertical"
+        android:padding="0.0dip" >
+
+      
+         <TextView
+                style="@style/common_input_t"
+            android:id="@+id/textView_avatar_album"
+             android:textColor="@color/text_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_avatar_album" />
+        
+    </LinearLayout>
+
+ 
+
+</LinearLayout>

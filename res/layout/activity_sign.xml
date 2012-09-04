@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:kids21="http://schemas.android.com/apk/res/com.kids21.app.newspaper"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/common_bg_white"
+    android:orientation="vertical" >
+
+    <com.kids21.app.newpaper.widget.MyTitle
+        android:id="@+id/c_myTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        kids21:left_icon="@drawable/common_icon_back" />
+
+    <LinearLayout
+        style="@style/common_input_t_sign"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="@style/input_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_addname"
+            android:textColor="@color/text_dark" />
+
+        <EditText
+            android:id="@+id/curryName"
+            style="@style/common_text_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:hint="@string/acc_hint_signin" />
+
+        <Button
+            android:id="@+id/clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="0.0dip"
+            android:layout_marginLeft="2.0dip"
+            android:layout_marginRight="0.0dip"
+            android:layout_marginTop="2.0dip"
+            android:padding="0.0dip"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1.0px"
+        android:background="@color/item_sep" />
+
+    <LinearLayout
+        style="@style/common_input_b"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="@style/input_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/acc_label_pwd" />
+
+        <EditText
+            android:id="@+id/currently_add"
+            style="@style/common_text_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:hint="@string/acc_hint_signin" />
+    </LinearLayout>
+
+    <com.baidu.mapapi.MapView
+        android:id="@+id/bmapsView"
+        style="@style/common_input_notpadding"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:clickable="true" />
+
+</LinearLayout>

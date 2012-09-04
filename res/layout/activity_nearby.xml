@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:kids21="http://schemas.android.com/apk/res/com.kids21.app.newspaper"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/common_bg_white"
+    android:orientation="vertical" >
+
+    <com.kids21.app.newpaper.widget.MyTitle
+        android:id="@+id/c_myTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        kids21:left_icon="@drawable/common_icon_back" />
+
+    <include layout="@layout/common_seach_bar" />
+    
+    <com.kids21.app.newpaper.widget.ItemView
+     
+        style="@style/common_input"
+        android:cacheColorHint="@android:color/transparent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        kids21:item_icon="@drawable/user_icon_favor"
+        kids21:item_title="@string/nearby_label_all"
+        kids21:position="middle" />
+    
+
+    <com.kids21.app.newpaper.widget.ItemView
+        android:id="@+id/friend"
+        style="@style/common_input_t"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        kids21:item_icon="@drawable/user_icon_friend"
+        kids21:item_title="@string/nearby_label_zhongcan"
+        kids21:position="top" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1.0px"
+        android:background="@color/item_sep" />
+
+    <com.kids21.app.newpaper.widget.ItemView
+        android:id="@+id/favr"
+        style="@style/common_input_m"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        kids21:item_icon="@drawable/user_icon_favor"
+        kids21:item_title="@string/nearby_label_xican"
+        kids21:position="middle" />
+      <View
+        android:layout_width="wrap_content"
+        android:layout_height="1.0px"
+        android:background="@color/item_sep" />
+
+    <com.kids21.app.newpaper.widget.ItemView
+      
+        style="@style/common_input_m"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        kids21:item_icon="@drawable/user_icon_favor"
+        kids21:item_title="@string/nearby_label_lengyin"
+        kids21:position="middle" />
+      <View
+        android:layout_width="wrap_content"
+        android:layout_height="1.0px"
+        android:background="@color/item_sep" />
+
+    <com.kids21.app.newpaper.widget.ItemView
+     
+        style="@style/common_input_m"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        kids21:item_icon="@drawable/user_icon_favor"
+        kids21:item_title="@string/nearby_label_ktv"
+        kids21:position="middle" />
+    
+    
+
+    <com.kids21.app.newpaper.widget.ItemView
+     
+        style="@style/common_input"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        kids21:item_icon="@drawable/user_icon_favor"
+        kids21:item_title="@string/nearby_label_ktv"
+        kids21:position="middle" />
+
+</LinearLayout>

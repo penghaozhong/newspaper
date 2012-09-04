@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/common_bg_title" >
+
+    <ImageButton
+        android:id="@+id/title_img_left"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@id/title_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/common_btn_title_l_selector"
+        android:gravity="center"
+        android:minWidth="50.0dip"
+        android:padding="10.0dip"
+        android:textColor="#ffffffff"
+        android:textSize="14.0sp"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@id/title_text"
+        style="@style/common_title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="60.0dip"
+        android:layout_marginRight="60.0dip"
+        android:drawablePadding="5.0dip"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true" />
+
+   
+
+    <ImageButton
+        android:id="@+id/title_img_right"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+    	android:layout_alignLeft="@+id/title_right"
+    	android:layout_marginLeft="13dp"
+         android:layout_centerVertical="true"
+        android:visibility="gone" />
+ <Button
+        android:id="@+id/title_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/common_btn_title_r_selector"
+        android:gravity="center"
+        android:minWidth="50.0dip"
+        android:padding="10.0dip"
+        android:textColor="#ffffffff"
+        android:textSize="14.0sp"
+        android:visibility="visible" />
+</RelativeLayout>

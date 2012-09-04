@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:id="@+id/layout_itemView"
+    android:orientation="vertical" >
+
+    <View
+        android:id="@id/top"
+        android:layout_width="wrap_content"
+        android:layout_height="1.0dip"
+        android:background="@color/item_sep"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/item_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="fill_horizontal"
+        android:padding="5.0dip"
+      >
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="20.0dip"
+            android:layout_height="20.0dip"
+            android:layout_marginTop="2.0dip"
+            android:scaleType="fitXY"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/common_text_large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3.0dip"
+            android:text="title"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/desc"
+            style="@style/common_text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8.0dip"
+            android:maxWidth="200.0dip"
+            android:singleLine="true"
+            android:text="desc"
+            android:textColor="@color/text_ltgray"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@id/tip"
+            style="@style/common_text_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3.0dip"
+            android:layout_marginTop="-1.0dip"
+            android:background="@drawable/common_bg_tip_red"
+            android:gravity="center"
+            android:paddingBottom="1.0dip"
+            android:paddingLeft="5.0dip"
+            android:paddingRight="5.0dip"
+            android:paddingTop="0.0dip"
+            android:text="tip"
+            android:textColor="@color/text_white"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="30.0dip"
+            android:layout_height="30.0dip"
+            android:layout_marginLeft="8.0dip"
+            android:scaleType="fitXY"
+            android:src="@null"
+            android:visibility="visible" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1.0px"
+            android:layout_weight="1.0" />
+
+        <ProgressBar
+            android:id="@id/loading"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@id/check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/common_check_box_icon"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@id/right_text"
+            style="@style/common_text_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2.0dip"
+            android:layout_marginTop="-3.0dip"
+            android:text="right"
+            android:textColor="@color/text_ltgray"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@id/arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:duplicateParentState="true"
+            android:src="@drawable/common_icon_arrow_selector"
+            android:visibility="visible" />
+    </LinearLayout>
+
+  
+
+</LinearLayout>
