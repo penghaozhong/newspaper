@@ -4,7 +4,13 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -30,10 +36,17 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.kids21.app.newpaper.AppContext;
 import com.kids21.app.newpaper.common.FileHelper;
+import com.kids21.app.newpaper.common.ImageManager;
+import com.kids21.app.newpaper.http.HttpClient;
+import com.kids21.app.newpaper.http.HttpException;
+import com.kids21.app.newpaper.http.Response;
+import com.kids21.app.newpaper.http.ResponseException;
 import com.kids21.app.newpaper.task.GenericTask;
 import com.kids21.app.newpaper.task.TaskAdapter;
 import com.kids21.app.newpaper.task.TaskListener;
+import com.kids21.app.newpaper.task.TaskParams;
 import com.kids21.app.newpaper.task.TaskResult;
 import com.kids21.app.newpaper.widget.ItemView;
 import com.kids21.app.newspaper.R;
@@ -146,6 +159,8 @@ public class UserActivity extends Activity {
 				openContextMenu(v);
 			}
 		});
+		
+		mPreview=(ImageView)findViewById(R.id.image);
 
 	}
 
@@ -282,7 +297,8 @@ public class UserActivity extends Activity {
 		} else {
 			mFile = new File(mImageUri.getPath());
 		}
-
+		doSend();
+		
 		// TODO:想将图片放在EditText左边
 		mPreview.setImageBitmap(createThumbnailBitmap(mImageUri,
 				MAX_BITMAP_SIZE));
@@ -345,4 +361,155 @@ public class UserActivity extends Activity {
 			}
 		}
 	}
+	
+	private void doSend() {
+		Log.d(TAG, "dosend  " + withPic);
+		
+
+		if (mSendTask != null
+				&& mSendTask.getStatus() == GenericTask.Status.RUNNING) {
+			return;
+		} else {
+		//	String status = mTweetEdit.getText().toString();
+
+			
+				int mode=SendTask.TYPE_NORMAL;
+				if (withPic) {
+					mode = SendTask.TYPE_PHOTO;
+				} 
+
+				mSendTask = new SendTask();
+				mSendTask.setListener(mSendTaskListener);
+
+				TaskParams params = new TaskParams();
+				params.put("mode", mode);
+				mSendTask.execute(params);
+			
+		}
+	}
+	
+	/*
+	 * 上传图片方法
+	 * post 方式参数参考
+	 * http.httpRequest(
+	   baseURL + "index.php?m=upfile&c=up",
+	   createParams(new BasicNameValuePair("status", status),
+	   new BasicNameValuePair("source", source)), mFile, true,
+	   HttpPost.METHOD_NAME);
+	 */
+	private class SendTask extends GenericTask {
+
+		public static final int TYPE_NORMAL = 0;
+		public static final int TYPE_REPLY = 1;
+		public static final int TYPE_REPOST = 2;
+		public static final int TYPE_PHOTO = 3;
+
+		@Override
+		protected TaskResult _doInBackground(TaskParams... params) {
+			TaskParams param = params[0];
+			try {
+				int mode = param.getInt("mode");
+
+				// Send status in different way
+				switch (mode) {
+
+				case TYPE_REPLY:
+					break;
+
+				case TYPE_REPOST:
+					break;
+
+				case TYPE_PHOTO:
+					if (null != mFile) {
+						// Compress image
+						try {
+							mFile = getImageManager().compressImage(mFile, 100);
+							// ImageManager.DEFAULT_COMPRESS_QUALITY);
+						} catch (IOException ioe) {
+							Log.e(TAG, "Cann't compress images.");
+						}
+						
+						
+						
+								Response ress = AppContext.http.httpRequest(
+								HttpClient.baseURL + "index.php?m=upfile&c=up",null, mFile, true,
+								HttpPost.METHOD_NAME);
+								
+								// 解析json 显示结果
+								if(showResult(ress)==1){
+									return TaskResult.OK;
+								}
+								
+					} else {
+						Log.e(TAG,
+								"Cann't send status in PICTURE mode, photo is null");
+					}
+					break;
+
+				case TYPE_NORMAL:
+				default:
+					break;
+				}
+			} catch (HttpException e) {
+				Log.e(TAG, e.getMessage(), e);
+
+				if (e.getStatusCode() == HttpClient.NOT_AUTHORIZED) {
+					return TaskResult.AUTH_ERROR;
+				}
+				return TaskResult.IO_ERROR;
+			}
+
+			return TaskResult.FAILED;
+		}
+
+		private ImageManager getImageManager() {
+			return AppContext.mImageManager;
+		}
+	}
+	
+	/**
+	 * 生成POST Parameters助手
+	 * 
+	 * @param nameValuePair
+	 *            参数(一个或多个)
+	 * @return post parameters
+	 */
+	public ArrayList<BasicNameValuePair> createParams(
+			BasicNameValuePair... nameValuePair) {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		for (BasicNameValuePair param : nameValuePair) {
+			params.add(param);
+		}
+		return params;
+	}
+	
+	/**
+	 * 返回结果
+	 * @param res
+	 * @return 1：成功  0：失败
+	 */
+	public int showResult(Response res){
+		int re=0;
+		if(res!=null){
+			try {
+				JSONObject json=res.asJSONObject();
+				int resu=json.getInt("message");
+				if(resu==1){
+					// sucuss
+					re=1;
+				}else{
+					//fail
+				}
+			} catch (ResponseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return re;
+	}
+	
+	
 }

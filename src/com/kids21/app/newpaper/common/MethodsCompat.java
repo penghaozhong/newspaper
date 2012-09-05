@@ -32,7 +32,7 @@ public class MethodsCompat {
        	return MediaStore.Images.Thumbnails.getThumbnail(cr,origId,kind, options);
     }
     
-    @TargetApi(8)
+/*    @TargetApi(8)
     public static File getExternalCacheDir(Context context) {
 
 //	    // return context.getExternalCacheDir(); API level 8
@@ -44,7 +44,7 @@ public class MethodsCompat {
 //	    return extCacheDir;
 
         return context.getExternalCacheDir();
-    }
+    }*/
     /*
     @TargetApi(11)
     public static void recreate(Activity activity) {

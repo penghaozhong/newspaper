@@ -24,8 +24,9 @@ import android.os.Handler;
 import android.os.Message;
 import android.webkit.CacheManager;
 
+import com.kids21.app.newpaper.common.ImageManager;
 import com.kids21.app.newpaper.common.ImageUtils;
-import com.kids21.app.newpaper.common.MethodsCompat;
+import com.kids21.app.newpaper.common.LazyImageLoader;
 import com.kids21.app.newpaper.common.StringUtils;
 import com.kids21.app.newpaper.http.HttpClient;
 
@@ -57,6 +58,9 @@ public class AppContext extends Application {
 	
 	public final static boolean DEBUG = Configuration.getDebug();
 	public static HttpClient http = null;
+	public static LazyImageLoader mImageLoader;
+	public static Context mContext;
+	public static ImageManager mImageManager;
 
 	@Override
 	public void onCreate() {
@@ -76,6 +80,9 @@ public class AppContext extends Application {
 
 		super.onCreate();
 		http = new HttpClient();
+		mImageManager = new ImageManager(this);
+		mImageLoader = new LazyImageLoader();
+		mContext = this.getApplicationContext();
 
 	}
 
@@ -359,9 +366,9 @@ public class AppContext extends Application {
 		clearCacheFolder(getFilesDir(),System.currentTimeMillis());
 		clearCacheFolder(getCacheDir(),System.currentTimeMillis());
 		//2.2版本才有将应用缓存转移到sd卡的功能
-		if(isMethodsCompat(android.os.Build.VERSION_CODES.FROYO)){
+		/*if(isMethodsCompat(android.os.Build.VERSION_CODES.FROYO)){
 			clearCacheFolder(MethodsCompat.getExternalCacheDir(this),System.currentTimeMillis());
-		}
+		}*/
 		//清除编辑器保存的临时内容
 		Properties props = getProperties();
 		for(Object key : props.keySet()) {
