@@ -10,7 +10,6 @@ package com.kids21.app.newpaper.ui;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.message.BasicNameValuePair;
 
-import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -155,7 +154,7 @@ public class SignActivity extends com.baidu.mapapi.MapActivity {
 		return false;
 	}
 
-	@SuppressLint("HandlerLeak")
+	
 	private Handler handler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
 			try {

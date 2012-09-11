@@ -1,18 +1,10 @@
 package com.kids21.app.newpaper.common;
 
-import java.io.File;
-
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ContentResolver;
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory.Options;
-import android.graphics.Paint;
-import android.os.Build;
 import android.provider.MediaStore;
-import android.view.View;
-import android.view.Window;
 
 /**
  * Android各版本的兼容方法
